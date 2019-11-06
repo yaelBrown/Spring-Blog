@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.example.demo.models;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "posts")
-public class PostsModel {
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,10 @@ public class PostsModel {
     @Column(length = 255, nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    public PostsModel(String author, String title, String content) {
+    // Need a empty constructor to work with Spring.
+    public Post() {}
+
+    public Post(String author, String title, String content) {
         this.author = author;
         this.title = title;
         this.content = content;
@@ -57,5 +60,7 @@ public class PostsModel {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public void deletePost(Long id) {}
 }
 
