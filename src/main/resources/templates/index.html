@@ -2,14 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <title>Title</title>
   </head>
   <body>
+    <img th:src="@{/images/cooltext340808855470369.gif}"/>
     <ul style="list-style-type: none;">
       <li style="display: inline-block;"><a href="/">Home</a></li>
       <li style="display: inline-block;"><a href="/posts">View Posts</a></li>
       <li style="display: inline-block;"><a href="/posts/create">Create Posts</a></li>
     </ul>
     <h1>This is the index page</h1>
+    <script type="text/javascript" th:src="@{/js/app.js}"></script>
   </body>
 </html>
