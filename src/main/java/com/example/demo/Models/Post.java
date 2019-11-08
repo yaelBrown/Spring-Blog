@@ -29,6 +29,20 @@ public class Post {
         this.content = content;
     }
 
+    public Post(Long id, String author, String title, String content) {
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.content = content;
+    }
+
+    public Post(String id, String author, String title, String content) {
+        this.id = Long.parseLong(id);
+        this.author = author;
+        this.title = title;
+        this.content = content;
+    }
+
     public long getId() {
         return id;
     }

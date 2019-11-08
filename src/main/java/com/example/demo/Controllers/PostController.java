@@ -19,10 +19,32 @@ class PostController {
         this.postDao = postDao;
     }
 
+//    // This will return JSON data
+//    @GetMapping("/posts")
+//    @ResponseBody
+//    public List<Post> getAllPosts() {
+//        return postDao.findAll();
+//    }
+
     @GetMapping("/posts")
-    @ResponseBody
-    public List<Post> getAllPosts() {
-        return postDao.findAll();
+    public String getAllPosts(Model vm) {
+        vm.addAttribute("retrievedPosts", postDao.findAll());
+        return "posts/index";
+    }
+
+    @GetMapping("/posts/create")
+    public String showCreatePostForm() {
+        return "posts/create";
+    }
+
+    @PostMapping("/posts/create")
+    public String createPost(
+            @RequestParam String author,
+            @RequestParam String title,
+            @RequestParam String content) {
+        Post p = new Post(author, title, content);
+        postDao.save(p);
+        return "redirect:/posts";
     }
 
     @GetMapping("/posts/{id}")
