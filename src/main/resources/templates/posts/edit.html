@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit post</title>
+</head>
+  <body>
+    <img th:src="@{/images/cooltext340808855470369.gif}"/>
+    <br>
+    <ul style="list-style-type: none;">
+      <li style="display: inline-block;"><a href="/">Home</a></li>
+      <li style="display: inline-block;"><a href="/posts">View Posts</a></li>
+      <li style="display: inline-block;"><a href="/posts/create">Create Posts</a></li>
+    </ul>
+    <hr>
+    <h1>This is the create post page.</h1>
+    <form action="/posts/edit" method="post" style="width: 50%;display:flex; flex-direction:
+    column;
+    justify-content:
+        center;">
+      <label name="author" for="author">Author</label>
+      <input type="text" id="author" name="author" placeholder="enter author here">
+      <label name="title" for="title">Title</label>
+      <input type="text" id="title" name="title" placeholder="enter title here">
+      <label name="content" for="content">Content</label>
+      <textarea type="textarea" id="content" name="content" placeholder="enter post text here"></textarea>
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
