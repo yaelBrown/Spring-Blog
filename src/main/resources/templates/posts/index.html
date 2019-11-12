@@ -14,6 +14,7 @@
     <title>Title</title>
   </head>
   <body>
+  
     <img th:src="@{/images/cooltext340808855470369.gif}"/>
     <h1>This is the posts/index page</h1>
     <ul style="list-style-type: none; ">
@@ -22,6 +23,7 @@
       <li style="display: inline-block;"><a href="/posts/create">Create Posts</a></li>
     </ul>
     <hr>
+    
     <div class="displayPosts">
       <div th:each="p : ${retrievedPosts}" style="margin-bottom: 2em;">
         <h3 th:text="${p.title}"></h3>

@@ -19,11 +19,11 @@
     justify-content:
         center;">
       <label name="author" for="author">Author</label>
-      <input type="text" id="author" name="author" placeholder="enter author here">
+      <input type="text" id="author" name="author" placeholder="enter author here" th:value="${post.author}" required>
       <label name="title" for="title">Title</label>
-      <input type="text" id="title" name="title" placeholder="enter title here">
+      <input type="text" id="title" name="title" placeholder="enter title here" th:value="${post.title}" required>
       <label name="content" for="content">Content</label>
-      <textarea type="textarea" id="content" name="content" placeholder="enter post text here"></textarea>
+      <textarea type="textarea" id="content" name="content" th:inline="text" required>[[${post.content}]]</textarea>
       <button type="reset">Reset</button>
       <button type="submit">Submit</button>
     </form>

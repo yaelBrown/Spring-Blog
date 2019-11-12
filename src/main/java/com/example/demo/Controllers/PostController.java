@@ -48,9 +48,23 @@ class PostController {
     }
 
     @GetMapping("/posts/{id}")
-    @ResponseBody
-    public Post findPostById(@PathVariable Long id) {
-        return postDao.getOne(id);
+    public String findPostById(Model vm, @PathVariable Long id) {
+        vm.addAttribute("post", postDao.getOne(id));
+        return "posts/post";
+    }
+
+    @GetMapping("/posts/{id}/edit")
+    public String editPost(Model vm, @PathVariable Long id) {
+        vm.addAttribute("post", postDao.getOne(id));
+        return "posts/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String updatePost(@RequestParam String author,
+                             @RequestParam String title,
+                             @RequestParam String content) {
+        Post p = new Post(author, title, content);
+        return "redirect:/index";
     }
 
 }
